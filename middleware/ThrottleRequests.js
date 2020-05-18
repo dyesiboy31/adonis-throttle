@@ -99,7 +99,7 @@ class ThrottleRequests {
         response.header('X-RateLimit-Limit', maxAttempts)
         response.header('X-RateLimit-Remaining', remainingAttempts)
         if (retryAfter !== null) {
-            response.header('Retry-After', retryAfter)
+            response.header('Retry-After', 60)
             response.header('X-RateLimit-Reset', new Date().getTime() + (1000))
         }
     }
