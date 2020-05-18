@@ -47,8 +47,8 @@ class ThrottleRequests {
             const error = {
                 errors: [
                     {
-                        detail: "You are not allowed to do this action.",
-                        code: 401
+                        detail: "Too many attempts.",
+                        code: 429
                     }
                 ]
             };
