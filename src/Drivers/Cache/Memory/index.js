@@ -101,7 +101,7 @@ class Memory extends Cache {
      * @return {Cache}
      */
     incrementExpiration(key, seconds) {
-        seconds = seconds || 5
+        seconds = seconds || 0
         clearTimeout(this.timers[key])
         let penalty = (this.secondsToExpiration(key) + seconds)
         let penaltyInMiliseconds = penalty * 1000
