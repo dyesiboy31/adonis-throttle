@@ -44,7 +44,16 @@ class ThrottleRequests {
                 this.throttle.remainingAttempts(),
                 this.throttle.store.secondsToExpiration(this.throttle.key)
             )
-            throw new TooManyRequestsException('Too Many Attempts.')
+            const error = {
+                errors: [
+                    {
+                        detail: "You are not allowed to do this action.",
+                        code: 401
+                    }
+                ]
+            };
+
+            throw new TooManyRequestsException(error)
         }
 
         this._addHeaders(
